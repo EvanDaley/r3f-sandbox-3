@@ -47,10 +47,38 @@ export const useTurnStore = create(
                 // )
             },
 
-            // todo:
-            updateTurnHistory: (peerId, turnInformation) => {
+            takeTurn: (turnData) => {
+                set(
+                    (state) => {
+                        const history = state.turnHistory || {};
+                        const keys = Object.keys(history);
+                        const lastIndex = keys.length > 0 ? Math.max(...keys.map(Number)) : -1;
+                        const nextFreeIndex = lastIndex + 1;
 
+                        // Save the new turn
+                        const updatedHistory = {
+                            ...history,
+                            [nextFreeIndex]: {
+                                turnData,
+                            },
+                        };
+
+                        console.log('saving turn', JSON.stringify(turnData))
+                        // debugger
+
+                        const result = {
+                            turnHistory: updatedHistory,
+                            currentPlayerId: turnData.nextPlayerId,
+                            currentTurnStartTime: Date.now(),
+                        }
+
+                        return result;
+                    },
+                    false,
+                    `takeTurn`
+                );
             },
+
 
             initializePlayer: (peerId) => {
                 // console.log('Initialized player', peerId);

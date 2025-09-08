@@ -9,7 +9,7 @@ import {useTurnStore} from "./stores/turnStore";
 import {usePeerStore} from "../../stores/peerStore";
 
 export default function Scene() {
-    useTurns()
+    const { takeTurn } = useTurns()
     const currentPlayerId = useTurnStore(state => state.currentPlayerId);
     const peerId = usePeerStore(state => state.peerId);
 
@@ -78,7 +78,10 @@ export default function Scene() {
                                 }}
                                 onClick={() => {
                                     console.log("Taking turn for", peerId)
-                                    // TODO: trigger your "take turn" action here
+                                    takeTurn({
+                                        test: 'test1'
+                                    })
+
                                 }}
                             >
                                 Take Turn
