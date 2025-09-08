@@ -1,8 +1,8 @@
-# r3f-sandbox-2
+# r3f-sandbox-3
 
 ## Live Demo
 
-https://evandaley.github.io/r3f-sandbox-2/
+https://evandaley.github.io/r3f-sandbox-3/
 
 Open two Chrome tabs and connect from one to the other.
 
