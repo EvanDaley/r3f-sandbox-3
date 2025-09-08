@@ -19,9 +19,10 @@ export default function Scene() {
 
                 {/* Floor is generic, LinesRobot is injected */}
                 <Floor>
-                    {/* The floor receives click events and moves anything nested under it to the cell that was clicked */}
-                    <LinesRobot scale={[1, 1, 1]} />
+                    {/* Note that the floor receives click events and moves anything nested under it to the cell that was clicked */}
                 </Floor>
+
+                <LinesRobot scale={[1, 1, 1]} />
 
                 <ambientLight intensity={1} color="#aaffaa" />
                 <directionalLight

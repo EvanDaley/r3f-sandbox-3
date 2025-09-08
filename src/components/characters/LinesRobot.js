@@ -15,14 +15,17 @@ export default function LinesRobot(props) {
   const materialProps = {
     clearcoat: 1.0,
     clearcoatRoughness: 0,
-    metalness: 0.65,
-    roughness: 0.3,
-    color: 'blue',
-    normalMap: texture,
-    normalScale: [0.3, 0.3],
-    'normalMap-repeat': [30, 30],
-    transmission: 0.6,
+    metalness: 0.0,
+    roughness: 0.02,
+    color: 'teal',
+    transmission: 0.7,     // strong glass effect
+    thickness: 0.4,        // depth of glass
+    ior: 1.5,              // index of refraction
+    attenuationColor: "#16419f",
+    attenuationDistance: 5,
     transparent: true
+    // normalMap: texture,  // try commenting this out first
+    // normalScale: [0.05, 0.05],
   }
 
   const group = useRef()
@@ -42,7 +45,7 @@ export default function LinesRobot(props) {
 
   return (
     <group ref={group} {...props} dispose={null}>
-      <group position={[0, .85, 0]}>
+      <group position={[0, 0, 0]}>
         <mesh
           castShadow
           receiveShadow
@@ -97,7 +100,7 @@ export default function LinesRobot(props) {
         receiveShadow
         geometry={nodes.Cube002.geometry}
         material={materials['Material.001']}
-        position={[0, .85, 0.03]}
+        position={[0, 0, 0.03]}
       >
         <meshPhysicalMaterial {...materialProps} side={THREE.BackSide} transmission={.9} />
       </mesh>

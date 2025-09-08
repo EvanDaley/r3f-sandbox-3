@@ -6,15 +6,14 @@ const Cell = React.forwardRef(function Cell({ position, onClick }, ref) {
     const [randomNumber, setRandomNumber] = useState(0)
 
     useEffect(() => {
-        setRandomNumber(Math.floor(Math.random() * 3) + 5) // original 5–7 range
+        setRandomNumber(Math.floor(Math.random() * 10) + 5) // 5–14 for some variety
     }, [])
 
-    // Original scheme: #X8X8X8
-    const red = randomNumber.toString(16)
-    const green = "8"
-    const blue = randomNumber.toString(16)
-    const baseColor = `#${red}${green}${blue}${green}${blue}${green}`
-    const cellSize = .97
+    // Make red dominant: high R, lower G/B
+    const red = Math.min(15, randomNumber + 8).toString(16)  // boosted red
+    const green = Math.floor(randomNumber / 2).toString(16)  // small green
+    const blue = Math.floor(randomNumber / 3).toString(16)   // small blue
+    const baseColor = `#${red}${green}${blue}`
 
     return (
         <group ref={ref}>
@@ -25,11 +24,11 @@ const Cell = React.forwardRef(function Cell({ position, onClick }, ref) {
                 onPointerLeave={() => setHovered(false)}
                 position={position}
             >
-                <planeGeometry args={[cellSize,cellSize]} />
+                <planeGeometry args={[1, 1]} />
                 <meshStandardMaterial
                     dispose={null}
                     key={hovered ? "hover" : `base-${randomNumber}`}
-                    color={hovered ? "#558855" : baseColor}
+                    color={hovered ? "#cc4444" : baseColor}
                 />
             </mesh>
         </group>

@@ -12,7 +12,7 @@ export default function OrthographicOrbitControls(props) {
                 enableZoom={true}
                 rotateSpeed={0.12}
                 enablePan={true}
-                enableRotate={false}
+                // enableRotate={false}
                 mouseButtons={{
                     LEFT: null,
                     MIDDLE: THREE.MOUSE.ROTATE,

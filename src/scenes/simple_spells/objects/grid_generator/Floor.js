@@ -5,16 +5,20 @@ import Cell from "./Cell"
 import GridMove from "./GridMove"
 
 export default function Floor({ children }) {
-    const spacing = 1.05
+    const spacing = 1
     const cellCount = 15
     const cells = grid(cellCount, cellCount).map(([x, y, z]) => [
         x * spacing,
-        -0.5,
+        0,
         z * spacing,
     ])
 
     const [position, setPosition] = useState([0, 0, 0])
-    const onTargetClicked = (p) => setPosition([p[0], 0, p[2]])
+    const onTargetClicked = (p) => {
+        console.log(p)
+
+        return setPosition([p[0], 0, p[2]])
+    }
 
     return (
         <group position={[-((cellCount / 2) * spacing), 0, -((cellCount / 2) * spacing)]}>

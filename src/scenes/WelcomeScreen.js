@@ -24,10 +24,10 @@ export default function WelcomeScreen() {
 
             <Stage adjustCamera={false} intensity={0.5} contactShadow shadows>
                 <Suspense fallback={null}>
-                    <LinesRobot position={[0, .41, 0]}/>
+                    <LinesRobot position={[0, .85, 0]}/>
                 </Suspense>
 
-                <Html transform occlude={'blending'} position={[-2.9, 1.1, 0]} scale={.3}>
+                <Html transform occlude={'blending'} position={[-2.9, 2, 0]} scale={.3}>
                     <div style={{
                         padding: 20,
                         backgroundColor: 'white',
