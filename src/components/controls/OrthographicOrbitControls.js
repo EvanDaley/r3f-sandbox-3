@@ -22,13 +22,15 @@ export default function OrthographicOrbitControls() {
                     RIGHT: THREE.MOUSE.PAN,
                 }}
                 onChange={(e) => {
-                    const cam = e.target.object;
-                    console.log("Camera pos:", cam.position.toArray());
-                    console.log("Rotation (deg):", {
-                        x: THREE.MathUtils.radToDeg(cam.rotation.x).toFixed(2),
-                        y: THREE.MathUtils.radToDeg(cam.rotation.y).toFixed(2),
-                        z: THREE.MathUtils.radToDeg(cam.rotation.z).toFixed(2),
-                    });
+
+                    // Debugging cam position
+                    // const cam = e.target.object;
+                    // console.log("Camera pos:", cam.position.toArray());
+                    // console.log("Rotation (deg):", {
+                    //     x: THREE.MathUtils.radToDeg(cam.rotation.x).toFixed(2),
+                    //     y: THREE.MathUtils.radToDeg(cam.rotation.y).toFixed(2),
+                    //     z: THREE.MathUtils.radToDeg(cam.rotation.z).toFixed(2),
+                    // });
                 }}
             />
 
