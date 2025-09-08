@@ -1,7 +1,7 @@
 // handlers/scene1.js
 
 import { useScene1Store } from '../../stores/scene1Store';
-import { useGlobalGameStore } from '../../stores/globalGameStore';
+// import { useGlobalGameStore } from '../../stores/globalGameStore';
 import { usePeerStore } from '../../stores/peerStore';
 
 export function playerClick(fromPeerId, payload) {

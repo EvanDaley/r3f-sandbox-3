@@ -19,3 +19,10 @@ export const getRandomName = () => {
     ];
     return names[Math.floor(Math.random() * names.length)];
 };
+
+// This is useful because I often have multiple instances of the game running in chrome and the redux
+// dev tools gets confused if the store has the same name on both clients.
+export const generateUniqueStoreName = (prefix) => {
+    const port = window.location.port || 'unknown'
+    return `${port}-${prefix}-${Math.random().toString(36).substr(2, 2)}`
+}

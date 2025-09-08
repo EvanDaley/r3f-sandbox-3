@@ -1,10 +1,11 @@
 ﻿//  peerStore.js
 import create from 'zustand';
 import { devtools } from 'zustand/middleware';
+import {generateUniqueStoreName} from "../helpers/stringHelpers";
 
 // Since we have two of the same tab open (client and host), the redux dev tools were sharing state and going
 // crazy. Adding randomness to the name here gives distinct debuggable stores per tab.
-const storeName = `PeerStore-${Math.random().toString(36).substr(2, 5)}`
+const storeName = generateUniqueStoreName('PeerStore')
 console.log('my store is:', storeName)
 
 export const usePeerStore = create(devtools((set) => ({

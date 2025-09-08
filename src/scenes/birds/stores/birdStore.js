@@ -1,8 +1,9 @@
 // birdStore.js
 import create from 'zustand';
 import { devtools } from 'zustand/middleware';
+import {generateUniqueStoreName} from "../../../helpers/stringHelpers";
 
-const storeName = `BirdStore1-${Math.random().toString(36).substr(2, 5)}`;
+const storeName = generateUniqueStoreName('BirdStore');
 console.log('my store is', storeName);
 
 const highPoint = 20

@@ -1,7 +1,8 @@
 import create from 'zustand'
 import { devtools } from 'zustand/middleware';
+import {generateUniqueStoreName} from "../../../helpers/stringHelpers";
 
-const storeName = `SimpleGridStore1-${Math.random().toString(36).substr(2, 5)}`;
+const storeName = generateUniqueStoreName('SimpleGridStore')
 console.log('my store is', storeName);
 
 // Dev Considerations

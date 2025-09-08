@@ -1,8 +1,9 @@
 // scene1Store.js
 import create from 'zustand';
 import { devtools } from 'zustand/middleware';
+import {generateUniqueStoreName} from "../helpers/stringHelpers";
 
-const storeName = `Scene1Store-${Math.random().toString(36).substr(2, 5)}`;
+const storeName = generateUniqueStoreName('Scene1Store')
 
 export const useScene1Store = create(devtools((set, get) => ({
     clickCounts: {}, // { peerId: clickCount }
