@@ -10,7 +10,7 @@ export function playerClick(fromPeerId, payload) {
     const { isHost } = usePeerStore.getState();
     
     if (isHost) {
-        console.log('host received click event')
+        console.log('host received click events')
         // Host increments the click count
         const { incrementPlayerClicks, getPlayerClicks } = useBirdStore.getState();
         incrementPlayerClicks(fromPeerId);

@@ -1,6 +1,6 @@
 import React, { useMemo, useRef } from 'react'
 import {Box, useGLTF} from '@react-three/drei'
-import PulsingLight from "../../scenes/simple_grid/objects/PulsingLight";
+import PulsingLight from "../../modules/simple_grid/objects/PulsingLight";
 
 function asset(path) {
     const base = window.location.pathname.replace(/\/$/, '')

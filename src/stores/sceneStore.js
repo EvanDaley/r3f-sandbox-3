@@ -1,7 +1,7 @@
 import create from 'zustand'
-import WelcomeScreen from '../scenes/WelcomeScreen'
-import SimpleSpellsScene from '../scenes/simple_spells/SimpleSpellsScene'
-import TurnBasedScene from '../scenes/turn_based/TurnBasedScene'
+import WelcomeScreen from '../modules/WelcomeScreen'
+import SimpleSpellsScene from '../modules/simple_spells/SimpleSpellsScene'
+import TurnBasedScene from '../modules/turn_based/TurnBasedScene'
 
 const scenes = [
     { id: 'welcome', scene: WelcomeScreen },
