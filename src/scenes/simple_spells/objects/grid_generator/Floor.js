@@ -21,7 +21,7 @@ export default function Floor({ children }) {
     }
 
     return (
-        <group position={[-((cellCount / 2) * spacing), 0, -((cellCount / 2) * spacing)]}>
+        <group>
             {cells.map((pos) => (
                 <Cell
                     onClick={onTargetClicked}
@@ -29,7 +29,6 @@ export default function Floor({ children }) {
                     position={pos}
                 />
             ))}
-
             <GridMove position={position}>
                 {children}
             </GridMove>

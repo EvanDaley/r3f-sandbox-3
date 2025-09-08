@@ -1,30 +1,37 @@
-﻿import {Box, OrbitControls, OrthographicCamera, PerspectiveCamera} from "@react-three/drei";
+﻿import { OrbitControls, OrthographicCamera } from "@react-three/drei";
 import React from "react";
 import * as THREE from "three";
 
-export default function OrthographicOrbitControls(props) {
+export default function OrthographicOrbitControls() {
     return (
         <>
-            <OrthographicCamera makeDefault position={[15, 15, 15]} zoom={60} />
+            <OrthographicCamera
+                makeDefault
+                zoom={40}
+                position={[22, 16.1, 21]}
+            />
+
             <OrbitControls
-                minPolarAngle={Math.PI / 10}
-                maxPolarAngle={Math.PI / 1.5}
+                target={[6, 0, 6]}   // <--- important: controls use this, not camera.rotation
+                enableRotate={true}
                 enableZoom={true}
-                rotateSpeed={0.12}
                 enablePan={true}
-                // enableRotate={false}
                 mouseButtons={{
                     LEFT: null,
                     MIDDLE: THREE.MOUSE.ROTATE,
-                    RIGHT: THREE.MOUSE.PAN
+                    RIGHT: THREE.MOUSE.PAN,
                 }}
                 onChange={(e) => {
                     const cam = e.target.object;
-                    if (cam.position.y < 2) {
-                        cam.position.y = 2; // clamp to ground
-                    }
+                    console.log("Camera pos:", cam.position.toArray());
+                    console.log("Rotation (deg):", {
+                        x: THREE.MathUtils.radToDeg(cam.rotation.x).toFixed(2),
+                        y: THREE.MathUtils.radToDeg(cam.rotation.y).toFixed(2),
+                        z: THREE.MathUtils.radToDeg(cam.rotation.z).toFixed(2),
+                    });
                 }}
             />
+
         </>
     );
 }
